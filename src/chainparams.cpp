@@ -49,7 +49,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Sep 21, 2018, Cryptocurrency Markets Continue Resurgence as Ripple Claims 68 Percent Weekly Gains";
+    const char* pszTimestamp = "September 21 2018";
     const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -82,12 +82,12 @@ public:
         consensus.BIP65Height = 918684; // bab3041e8977e0dc3eeff63fe707b92bde1dd449d8efafb248c27c8264cc311a
         consensus.BIP66Height = 811879; // 7aceee012833fa8952f8835d8b1b3ae233cd6ab08fdb27a771d2bd7bdc491894
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
-        consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
-        consensus.nPowTargetSpacing = 4 * 60; // 4 minutes
+        consensus.nPowTargetTimespan = 10 * 24 * 60 * 60; // 10 days
+        consensus.nPowTargetSpacing = 3 * 60; // 3 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 1197; // 95% of 1260
-        consensus.nMinerConfirmationWindow = 1260; // nPowTargetTimespan / nPowTargetSpacing
+        consensus.nRuleChangeActivationThreshold = 900; // 75% of 1200
+        consensus.nMinerConfirmationWindow = 1200; // nPowTargetTimespan / nPowTargetSpacing * 4
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
@@ -106,7 +106,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x5bbc4a806912c288782a2918701b690bae31f0f87ad84d9a301c8e05fc58594f"); // 0 - genesisblock
+        consensus.defaultAssumeValid = uint256S("0xeaead17cc8c64a25a91f3c4224c000cb4395ed3a417f0af4c9fbf51e00148671"); // 0 - genesisblock
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -120,16 +120,16 @@ public:
         nDefaultPort = 9191;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1537556574, 1097628, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1537556574, 1252549, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x5bbc4a806912c288782a2918701b690bae31f0f87ad84d9a301c8e05fc58594f"));
-        assert(genesis.hashMerkleRoot == uint256S("0x3cc987853822ece703dadc223b819230402e41bde858000b90f7b8fcde03a27e"));
+        assert(consensus.hashGenesisBlock == uint256S("0xeaead17cc8c64a25a91f3c4224c000cb4395ed3a417f0af4c9fbf51e00148671"));
+        assert(genesis.hashMerkleRoot == uint256S("0xc33ce767df5eb1901c0d1aba7277c80ad792cec21b87cecd53b2bd2f83a87882"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        //vSeeds.emplace_back("seed-a.lightningcash.loshan.co.uk");
+        //vSeeds.emplace_back("seed-a.electrocoin.loshan.co.uk");
         //vSeeds.emplace_back("dnsseed.thrasher.io");
-        //vSeeds.emplace_back("dnsseed.lightningcashtools.com");
-        //vSeeds.emplace_back("dnsseed.lightningcashpool.org");
+        //vSeeds.emplace_back("dnsseed.electrocointools.com");
+        //vSeeds.emplace_back("dnsseed.electrocoinpool.org");
         //vSeeds.emplace_back("dnsseed.koin-project.com");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,66);
@@ -149,7 +149,7 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("0x5bbc4a806912c288782a2918701b690bae31f0f87ad84d9a301c8e05fc58594f")},
+                {  0, uint256S("0xeaead17cc8c64a25a91f3c4224c000cb4395ed3a417f0af4c9fbf51e00148671")},
             }
         };
 
@@ -177,12 +177,12 @@ public:
         consensus.BIP65Height = 76; // 8075c771ed8b495ffd943980a95f702ab34fce3c8c54e379548bda33cc8c0573
         consensus.BIP66Height = 76; // 8075c771ed8b495ffd943980a95f702ab34fce3c8c54e379548bda33cc8c0573
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 10 days
-        consensus.nPowTargetSpacing = 4 * 60; // 3 minutes
+        consensus.nPowTargetTimespan = 10 * 24 * 60 * 60; // 10 days
+        consensus.nPowTargetSpacing = 3 * 60; // 3 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 945; // 75% for testchains
-        consensus.nMinerConfirmationWindow = 1260; // nPowTargetTimespan / nPowTargetSpacing
+        consensus.nRuleChangeActivationThreshold = 3600; // 75% for testchains
+        consensus.nMinerConfirmationWindow = 4800; // nPowTargetTimespan / nPowTargetSpacing
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
@@ -201,7 +201,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x5bbc4a806912c288782a2918701b690bae31f0f87ad84d9a301c8e05fc58594f"); // 0 - Genesis Block
+        consensus.defaultAssumeValid = uint256S("0xeaead17cc8c64a25a91f3c4224c000cb4395ed3a417f0af4c9fbf51e00148671"); // 0 - Genesis Block
 
         pchMessageStart[0] = 0x57;
         pchMessageStart[1] = 0x58;
@@ -210,16 +210,16 @@ public:
         nDefaultPort = 19335;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1537556574, 1097628, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1537556574, 1252549, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x5bbc4a806912c288782a2918701b690bae31f0f87ad84d9a301c8e05fc58594f"));
-        assert(genesis.hashMerkleRoot == uint256S("0x3cc987853822ece703dadc223b819230402e41bde858000b90f7b8fcde03a27e"));
+        assert(consensus.hashGenesisBlock == uint256S("0xeaead17cc8c64a25a91f3c4224c000cb4395ed3a417f0af4c9fbf51e00148671"));
+        assert(genesis.hashMerkleRoot == uint256S("0xc33ce767df5eb1901c0d1aba7277c80ad792cec21b87cecd53b2bd2f83a87882"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        //vSeeds.emplace_back("testnet-seed.lightningcashtools.com");
-        //vSeeds.emplace_back("seed-b.lightningcash.loshan.co.uk");
+        //vSeeds.emplace_back("testnet-seed.electrocointools.com");
+        //vSeeds.emplace_back("seed-b.electrocoin.loshan.co.uk");
         //vSeeds.emplace_back("dnsseed-testnet.thrasher.io");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111); // m.... or n....
@@ -239,7 +239,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
-                {0, uint256S("0x5bbc4a806912c288782a2918701b690bae31f0f87ad84d9a301c8e05fc58594f")},
+                {0, uint256S("0xeaead17cc8c64a25a91f3c4224c000cb4395ed3a417f0af4c9fbf51e00148671")},
             }
         };
 
@@ -267,8 +267,8 @@ public:
         consensus.BIP65Height = 1351; // BIP65 activated on regtest (Used in rpc activation tests)
         consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in rpc activation tests)
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // two weeks
-        consensus.nPowTargetSpacing = 4 * 60;
+        consensus.nPowTargetTimespan = 10 * 24 * 60 * 60; // two weeks
+        consensus.nPowTargetSpacing = 3 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
@@ -296,10 +296,10 @@ public:
         nDefaultPort = 19444;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1537556574, 1097628, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1537556574, 1252549, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x5bbc4a806912c288782a2918701b690bae31f0f87ad84d9a301c8e05fc58594f"));
-        assert(genesis.hashMerkleRoot == uint256S("0x3cc987853822ece703dadc223b819230402e41bde858000b90f7b8fcde03a27e"));
+        assert(consensus.hashGenesisBlock == uint256S("0xeaead17cc8c64a25a91f3c4224c000cb4395ed3a417f0af4c9fbf51e00148671"));
+        assert(genesis.hashMerkleRoot == uint256S("0xc33ce767df5eb1901c0d1aba7277c80ad792cec21b87cecd53b2bd2f83a87882"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
@@ -310,7 +310,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("0x5bbc4a806912c288782a2918701b690bae31f0f87ad84d9a301c8e05fc58594f")},
+                {0, uint256S("0xeaead17cc8c64a25a91f3c4224c000cb4395ed3a417f0af4c9fbf51e00148671")},
             }
         };
 
