@@ -1,5 +1,4 @@
-
-<a href="https://imgbb.com/"><img src="https://image.ibb.co/czB4ge/Lightningcash_logo.png" alt="Lightningcash_logo" border="0"></a>
+<a href="https://ibb.co/h2U91e"><img src="https://preview.ibb.co/cm8f7K/bitcoin_logo_doxygen.png" alt="bitcoin_logo_doxygen" border="0"></a>
 
 
 
@@ -8,7 +7,7 @@
 Lightningcash Core integration/staging tree
 =====================================
 
-[![Build Status](https://travis-ci.org/MerlinMagic2018/lightningcash.svg?branch=master)](https://travis-ci.org/MerlinMagic2018/lightningcash)
+[![Build Status](https://travis-ci.org/LighningCashDev/lightningcash.svg?branch=master)](https://travis-ci.org/LighningCashDev/lightningcash)
 
 Official Website :
 
@@ -31,19 +30,19 @@ http://lightningcash-explorer.tk:3001/
 Exchanges listing to be announced in the future. Important dates and information will be available on the official website.
 
 
-Looking for serious long-term developpers to :
+Looking for serious long-term developpers.
 
--- integrate a multi-exchange platform right in the wallet GUI, through available exchanges APIs.
+
 
 
 Releases : 
 
-Windows 64bits wallet installer : https://ufile.io/i02r1
+Windows 64bits wallet installer : 
 
-Linux lightningcash.conf file : https://ufile.io/3p9iu 
+Linux lightningcash.conf file : 
 ( must be placed in /home/username/.lightningcash/lightningcash.conf )
 
-Official node : 18.224.50.0:9191
+Official node : 
 
 
 
