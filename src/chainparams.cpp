@@ -82,7 +82,7 @@ public:
         consensus.BIP65Height = 918684; // bab3041e8977e0dc3eeff63fe707b92bde1dd449d8efafb248c27c8264cc311a
         consensus.BIP66Height = 811879; // 7aceee012833fa8952f8835d8b1b3ae233cd6ab08fdb27a771d2bd7bdc491894
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
-        consensus.nPowTargetTimespan = 10 * 24 * 60 * 60; // 10 days
+        consensus.nPowTargetTimespan = 2.5 * 24 * 60 * 60; // 10 days
         consensus.nPowTargetSpacing = 3 * 60; // 3 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -308,7 +308,7 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = true; 
 
-        checkpointData = {
+        checkpointData = {lightningcash/blob/master/doc/build-windows.md
             {
                 {0, uint256S("0xeaead17cc8c64a25a91f3c4224c000cb4395ed3a417f0af4c9fbf51e00148671")},
             }
