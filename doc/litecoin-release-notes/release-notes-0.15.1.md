@@ -92,7 +92,7 @@ descends from an invalid block is marked as such.
 Minimum relay fee lowered
 -------------------------
 
-The minimum relay fee `-minrelayfee` has been lowered to 0.01 watts per kB (0.00001 ELTC). This is to prepare for dropping the minimum transaction fee to 0.1 watts per kB (0.0001 ELTC) in the next release.
+The minimum relay fee `-minrelayfee` has been lowered to 0.01 watts per kB (0.00001 LTNC). This is to prepare for dropping the minimum transaction fee to 0.1 watts per kB (0.0001 LTNC) in the next release.
 
 Mempool replacement disabled by default
 ---------------------------------------
