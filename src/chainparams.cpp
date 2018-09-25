@@ -308,9 +308,9 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = true; 
 
-        checkpointData = {lightningcash/blob/master/doc/build-windows.md
+        checkpointData = {
             {
-                {0, uint256S("0xeaead17cc8c64a25a91f3c4224c000cb4395ed3a417f0af4c9fbf51e00148671")},
+                {  0, uint256S("0xeaead17cc8c64a25a91f3c4224c000cb4395ed3a417f0af4c9fbf51e00148671")},
             }
         };
 
